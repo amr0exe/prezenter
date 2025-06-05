@@ -22,7 +22,7 @@ export const FileUploadButton: React.FC<FileUploadButtonProps> = ({ onFileSelect
     <div className="flex flex-col items-center">
       <button
         onClick={handleClick}
-        className="group relative overflow-hidden px-6 py-3 bg-blue-600 rounded-lg text-white font-medium flex items-center gap-2 hover:bg-blue-700 transition-colors"
+      className="group relative overflow-hidden px-10 py-4 bg-blue-600 rounded-lg text-white font-medium flex items-center gap-2 hover:bg-blue-700 transition-colors mr-5"
       >
         <FileUp size={20} />
         Upload PDF
@@ -35,9 +35,9 @@ export const FileUploadButton: React.FC<FileUploadButtonProps> = ({ onFileSelect
         accept=".pdf"
         className="hidden"
       />
-      <p className="mt-4 text-gray-400 text-sm">
+      {/* <p className="mt-4 text-gray-400 text-sm">
         Supported format: PDF
-      </p>
+      </p> */}
     </div>
   );
 };

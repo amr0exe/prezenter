@@ -84,13 +84,14 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ file, onFileChange }) => {
     if (isFullscreen) {
       // In fullscreen, use nearly the entire screen
       return {
-        width: containerSize.width * 0.98, // Small margin for safety
-        height: containerSize.height * 0.98
+        width: containerSize.width * 0.95,
+        height: containerSize.height * 0.95
       };
     } else {
-      // In normal mode, use most of the container width
+      // In normal mode, use 80% of viewport width for better visibility
+      const viewportWidth = window.innerWidth;
       return {
-        width: containerSize.width * 0.85
+        width: Math.min(viewportWidth * 0.8, containerSize.width * 0.9)
       };
     }
   };
@@ -101,8 +102,8 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ file, onFileChange }) => {
     <div 
       ref={containerRef}
       className={`
-        relative flex flex-col items-center mt-20
-        ${isFullscreen ? 'fixed inset-0 z-50 bg-black' : 'min-h-[calc(100vh-200px)] bg-gray-900 rounded-xl overflow-hidden'}
+        relative flex flex-col items-center w-full
+        ${isFullscreen ? 'fixed inset-0 z-50 bg-black' : 'min-h-[calc(100vh-100px)] bg-gray-900 rounded-xl overflow-hidden'}
       `}
     >
       {!loaded && (
